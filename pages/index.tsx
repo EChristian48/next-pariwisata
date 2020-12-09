@@ -1,120 +1,126 @@
-import {} from 'react-bootstrap'
+import { NextSeo } from 'next-seo'
+import {
+  FaDribbble,
+  FaFacebook,
+  FaGoogle,
+  FaLinkedin,
+  FaTwitter,
+  FaWikipediaW,
+} from 'react-icons/fa'
+import Achievement, { AchievementProps } from '~root/components/Achievements'
+import FixedSideNavbar from '~root/components/FixedSideNavbar'
+import PlaceCard, { PlaceCardProps } from '~root/components/PlaceCard'
+
+const menus: string[] = ['Intro', 'Services', 'Our Story', 'Contact Us']
+
+const achievements = new Array<AchievementProps>(4).fill({
+  href:
+    'https://nasional.tempo.co/read/1286036/bogor-raih-penghargaan-kota-sehat-kategori-tertinggi/full&view=ok',
+  deskripsi:
+    'Pemerintah Kota Bogor menerima penghargaan anugerah Swastisaba Tahun 2019 dari Kementerian Dalam Negeri Republik Indonesia.',
+  judul: 'Bogor Raih Penghargaan Kota Sehat Kategori Tertinggi',
+})
+
+const places: PlaceCardProps[] = [
+  {
+    src: 'https://upload.wikimedia.org/wikipedia/commons/c/cd/Istana_Bogor.jpg',
+    children:
+      'Istana Bogor (Aksara Sunda Baku: ᮄᮞ᮪ᮒᮔ ᮘᮧᮌᮧᮁ) merupakan salah satu dari enam Istana Presiden Republik Indonesia yang mempunyai keunikan tersendiri dikarenakan aspek historis, kebudayaan, dan faunanya. Salah satunya adalah keberadaan rusa-rusa yang didatangkan langsung dari Nepal dan tetap terjaga dari dulu sampai sekarang. Seperti namanya, istana ini terletak di Bogor, Jawa Barat.',
+  },
+  {
+    src:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Kebun_Raya_Bogor_19.jpg/1280px-Kebun_Raya_Bogor_19.jpg',
+    children:
+      'Kebun Raya Bogor atau Kebun Botani Bogor (Aksara Sunda Baku: ᮊᮨᮘᮧᮔ᮪ ᮛᮚ ᮘᮧᮍᮧᮁ, Kebon Raya Bogor) adalah sebuah kebun botani besar yang terletak di Kota Bogor, Indonesia. Luasnya mencapai 87 hektar dan memiliki 15.000 jenis koleksi pohon dan tumbuhan.',
+  },
+  {
+    src:
+      'https://image.shutterstock.com/z/stock-photo-good-morning-from-gede-pangrango-mountain-bogor-cianjur-west-java-indonesia-1359947378.jpg',
+    children:
+      'Gunung Pangrango (Aksara Sunda Baku: ᮌᮥᮔᮥᮀ ᮕᮍᮢᮍᮧ) merupakan sebuah gunung yang terdapat di pulau Jawa, Indonesia. Gunung Pangrango mempunyai ketinggian setinggi 3.019 meter dari permukaan laut. Puncaknya dinamakan Puncak Mandalawangi. Puncak Mandalawangi juga merupakan titik pertemuan batas tiga kabupaten yaitu Kabupaten Bogor, Kabupaten Cianjur dan Kabupaten Sukabumi.',
+  },
+  {
+    src:
+      'https://explorewisata.com/wp-content/uploads/2018/04/devoyage-bogor.jpg',
+    children:
+      'Devoyage berpotensi menjadi salah satu objek wisata paling favorit di Kota Bogor. Pada saat Grand Opening saja mengundang penyanyi papan atas sekelas Tulus dan Kahitna. Apalagi melihat aneka spot foto kekinian yang sangat digemari oleh anak muda jaman now, seperti menjadi spot foto corner di Bogor yang sayang untuk dilewatkan.',
+  },
+]
 
 export default function Home() {
   return (
     <>
-      <div className='fixed-side-navbar'>
-        <ul className='nav flex-column'>
-          <li className='nav-item'>
-            <a className='nav-link' href='#home'>
-              <span>Intro</span>
-            </a>
-          </li>
-          <li className='nav-item'>
-            <a className='nav-link' href='#services'>
-              <span>Services</span>
-            </a>
-          </li>
-          <li className='nav-item'>
-            <a className='nav-link' href='#portfolio'>
-              <span>Portfolio</span>
-            </a>
-          </li>
-          <li className='nav-item'>
-            <a className='nav-link' href='#our-story'>
-              <span>Our Story</span>
-            </a>
-          </li>
-          <li className='nav-item'>
-            <a className='nav-link' href='#contact-us'>
-              <span>Contact Us</span>
-            </a>
-          </li>
-        </ul>
-      </div>
+      <NextSeo title='Home' />
 
-      <div className='parallax-content baner-content' id='home'>
+      <FixedSideNavbar {...{ menus }} />
+
+      {/* First Section */}
+      <div className='parallax-content baner-content' id='intro'>
         <div className='container'>
           <div className='first-content'>
-            <h1>Vanilla</h1>
+            <h1>Bogor</h1>
             <span>
-              <em>Bootstrap</em> v4.2.1 Theme
+              <em>Mari</em> ke Sini!
             </span>
             <div className='primary-button'>
-              <a href='#services'>Discover More</a>
+              <a href='#services'>Cari Tahu</a>
             </div>
           </div>
         </div>
       </div>
 
+      {/* Second Section */}
       <div className='service-content' id='services'>
         <div className='container'>
           <div className='row'>
             <div className='col-md-4'>
+              {/* Introduction */}
               <div className='left-text'>
-                <h4>More About Vanilla</h4>
+                <h4>Tentang Kota Bogor</h4>
                 <div className='line-dec'></div>
                 <p>
-                  Vanilla is free HTML CSS template with Bootstrap v4.2.1 and
-                  you can apply this theme for your sites. Please share our
-                  <a rel='nofollow' href='https://templatemo.com'>
-                    website
-                  </a>{' '}
-                  to your friends or collegues. Thank you.
+                  Kota Bogor (aksara Sunda: ᮊᮧᮒ ᮘᮧᮍᮁᮧ) adalah sebuah kota di
+                  Provinsi Jawa Barat. Kota ini terletak 59 km² di sebelah
+                  selatan Jakarta, dan wilayahnya berada di tengah-tengah
+                  wilayah Kabupaten Bogor.
                 </p>
-                <ul>
+
+                <p>
+                  Bogor dikenal dengan julukan Kota Hujan, karena memiliki curah
+                  hujan yang sangat tinggi. Kota Bogor terdiri atas 6 kecamatan
+                  yang dibagi lagi atas sejumlah 68 kelurahan. Pada masa
+                  Kolonial Belanda, Bogor dikenal dengan nama Buitenzorg yang
+                  berarti tanpa kecemasan atau aman tenteram.
+                </p>
+
+                <p>
+                  Hari Jadi Kota Bogor dan Kabupaten Bogor diperingati setiap
+                  tanggal 3 Juni, karena tanggal 3 Juni 1482 merupakan hari
+                  penobatan Prabu Siliwangi sebagai raja dari Kerajaan
+                  Pajajaran.
+                </p>
+
+                {/* <ul>
                   <li>- Praesent porta urna id eros</li>
                   <li>- Curabitur consectetur malesuada</li>
                   <li>- Nam pretium imperdiet enim</li>
                   <li>- Sed viverra arcu non nisi efficitur</li>
-                </ul>
+                </ul> */}
+
                 <div className='primary-button'>
-                  <a href='#portfolio'>Learn More About Us</a>
+                  <a href='https://id.wikipedia.org/wiki/Kota_Bogor'>
+                    <FaWikipediaW /> Halaman Wikipedia
+                  </a>
                 </div>
               </div>
             </div>
+
+            {/* Achievements */}
             <div className='col-md-8'>
               <div className='row'>
-                <div className='col-md-6'>
-                  <div className='service-item'>
-                    <h4>classNameic Modern Design</h4>
-                    <div className='line-dec'></div>
-                    <p>
-                      Sed lacinia ligula est, at venenatis ex iaculis quis.
-                      Morbi sollicitudin nulla eget odio pellentesque.
-                    </p>
-                  </div>
-                </div>
-                <div className='col-md-6'>
-                  <div className='service-item'>
-                    <h4>Unique &amp; Creative Ideas</h4>
-                    <div className='line-dec'></div>
-                    <p>
-                      Sed lacinia ligula est, at venenatis ex iaculis quis.
-                      Morbi sollicitudin nulla eget odio pellentesque.
-                    </p>
-                  </div>
-                </div>
-                <div className='col-md-6'>
-                  <div className='service-item'>
-                    <h4>Effective Team Work</h4>
-                    <div className='line-dec'></div>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Sed lacinia ligula est, at venenatis ex iaculis quis.
-                    </p>
-                  </div>
-                </div>
-                <div className='col-md-6'>
-                  <div className='service-item'>
-                    <h4>Fast Support 24/7</h4>
-                    <div className='line-dec'></div>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Sed lacinia ligula est, at venenatis ex iaculis quis.
-                    </p>
-                  </div>
-                </div>
+                {achievements.map((achievement, index) => (
+                  <Achievement {...achievement} key={index} />
+                ))}
               </div>
             </div>
           </div>
@@ -127,44 +133,11 @@ export default function Home() {
             <div className='col-md-8 mx-auto'>
               <div className='wrapper'>
                 <section id='first-tab-group' className='tabgroup'>
-                  <div id='tab1'>
-                    <img src='/img/1st-tab.jpg' alt='' />
-                    <p>
-                      Please do not re-distribute our template ZIP file on your
-                      template collection sites. You can make a screenshot and a
-                      link back to our website. This template can be used for
-                      personal or commercial purposes by end-users.
-                    </p>
-                  </div>
-                  <div id='tab2'>
-                    <img src='/img/2nd-tab.jpg' alt='' />
-                    <p>
-                      Aliquam eu ultrices risus, sed condimentum diam. Duis
-                      risus nulla, elementum vitae nisi a, ornare maximus nisl.
-                      Morbi et vehicula est. Cras at vulputate justo. Cras eu
-                      nulla metus. Ut et pretium velit. Pellentesque at neque
-                      tristique dui tempor venenatis.
-                    </p>
-                  </div>
-                  <div id='tab3'>
-                    <img src='/img/3rd-tab.jpg' alt='' />
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Sed lacinia ligula est, at venenatis ex iaculis quis.
-                      Morbi sollicitudin nulla eget odio pellentesque, sed
-                      cursus diam iaculis.
-                    </p>
-                  </div>
-                  <div id='tab4'>
-                    <img src='/img/4th-tab.jpg' alt='' />
-                    <p>
-                      Duis risus nulla, elementum vitae nisi a, ornare maximus
-                      nisl. Morbi et vehicula est. Cras at vulputate justo. Cras
-                      eu nulla metus. Ut et pretium velit. Pellentesque at neque
-                      tristique.
-                    </p>
-                  </div>
+                  {places.map((place, index) => (
+                    <PlaceCard {...place} key={index} />
+                  ))}
                 </section>
+
                 <ul className='tabs clearfix' data-tabgroup='first-tab-group'>
                   <li>
                     <a href='#tab1' className='active'>
@@ -267,34 +240,34 @@ export default function Home() {
               <ul>
                 <li>
                   <a href='#'>
-                    <i className='fa fa-facebook'></i>
+                    <FaFacebook />
                   </a>
                 </li>
                 <li>
                   <a href='#'>
-                    <i className='fa fa-twitter'></i>
+                    <FaTwitter />
                   </a>
                 </li>
                 <li>
                   <a href='#'>
-                    <i className='fa fa-linkedin'></i>
+                    <FaLinkedin />
                   </a>
                 </li>
                 <li>
                   <a href='#'>
-                    <i className='fa fa-google'></i>
+                    <FaGoogle />
                   </a>
                 </li>
                 <li>
                   <a href='#'>
-                    <i className='fa fa-dribbble'></i>
+                    <FaDribbble />
                   </a>
                 </li>
               </ul>
               <p>
-                Copyright &copy; 2019 Company Name - Design:
-                <a rel='nofollow noopener' href='https://templatemo.com'>
-                  <em>TemplateMo</em>
+                Made by:{' '}
+                <a href='https://www.instagram.com/smkwikrama/?hl=en'>
+                  SMK Wikrama Bogor
                 </a>
               </p>
             </div>
