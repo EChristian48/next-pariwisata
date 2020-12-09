@@ -17,6 +17,7 @@
     "react": "17.0.1",
     "react-bootstrap": "^1.4.0",
     "react-dom": "17.0.1",
+    "react-icons": "^4.1.0",
     "remarkable": "^2.0.1"
   },
   "devDependencies": {
