@@ -1,3 +1,38 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* First Content */
+
+.baner-content {
+  padding-top: 30vh;
+  text-align: center;
+  background-image: url(https://image.shutterstock.com/z/stock-photo-bogor-november-tugu-kujang-landmark-of-bogor-city-indonesia-773156842.jpg);
+}
+
+.baner-content h1 {
+  margin-top: 0px;
+  font-size: 128px;
+  color: #fff;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 0px;
+}
+
+.baner-content em {
+  color: #ff7d27;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.baner-content span {
+  display: inline-block;
+  margin-top: -20px;
+  font-weight: 300;
+  font-size: 48px;
+  color: #fff;
+}
+
+.baner-content .primary-button {
+  margin-top: 15px;
+}

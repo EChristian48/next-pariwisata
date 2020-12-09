@@ -6,6 +6,7 @@ import { defaultSeoConfig } from '~root/next-seo.config'
 import '~root/styles/main.css'
 import '~root/styles/slider.css'
 import '~root/styles/template.css'
+import '~root/styles/FixedSideNavbar.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
