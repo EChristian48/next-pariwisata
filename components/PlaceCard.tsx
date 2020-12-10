@@ -1,4 +1,5 @@
 import { DetailedHTMLProps, FC, ImgHTMLAttributes } from 'react'
+import { Carousel } from 'react-bootstrap'
 
 export type PlaceCardProps = DetailedHTMLProps<
   ImgHTMLAttributes<HTMLImageElement>,

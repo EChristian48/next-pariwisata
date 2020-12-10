@@ -1,4 +1,6 @@
+import $ from 'jquery'
 import { NextSeo } from 'next-seo'
+import { useEffect } from 'react'
 import {
   FaDribbble,
   FaFacebook,
@@ -11,7 +13,7 @@ import Achievement, { AchievementProps } from '~root/components/Achievements'
 import FixedSideNavbar from '~root/components/FixedSideNavbar'
 import PlaceCard, { PlaceCardProps } from '~root/components/PlaceCard'
 
-const menus: string[] = ['Intro', 'Services', 'Our Story', 'Contact Us']
+const menus: string[] = ['Bogor', 'Tentang', 'Tempat Wisata', 'Kontak Kami']
 
 const achievements = new Array<AchievementProps>(4).fill({
   href:
@@ -48,6 +50,22 @@ const places: PlaceCardProps[] = [
 ]
 
 export default function Home() {
+  useEffect(() => {
+    $(document).ready(function ($) {
+      'use strict'
+
+      var top_header = $('.parallax-content')
+      top_header.css({ 'background-position': 'center center' }) // better use CSS
+
+      $(window).scroll(function () {
+        var st = $(this).scrollTop()
+        top_header.css({
+          'background-position': 'center calc(50% + ' + st * 0.5 + 'px)',
+        })
+      })
+    })
+  }, [])
+
   return (
     <>
       <NextSeo title='Home' />
@@ -55,7 +73,7 @@ export default function Home() {
       <FixedSideNavbar {...{ menus }} />
 
       {/* First Section */}
-      <div className='parallax-content baner-content' id='intro'>
+      <div className='parallax-content baner-content' id='bogor'>
         <div className='container'>
           <div className='first-content'>
             <h1>Bogor</h1>
@@ -70,7 +88,7 @@ export default function Home() {
       </div>
 
       {/* Second Section */}
-      <div className='service-content' id='services'>
+      <div className='service-content' id='tentang'>
         <div className='container'>
           <div className='row'>
             <div className='col-md-4'>
@@ -127,7 +145,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className='tabs-content' id='our-story'>
+      <div className='tabs-content' id='tempat-wisata'>
         <div className='container'>
           <div className='row'>
             <div className='col-md-8 mx-auto'>
@@ -137,30 +155,13 @@ export default function Home() {
                     <PlaceCard {...place} key={index} />
                   ))}
                 </section>
-
-                <ul className='tabs clearfix' data-tabgroup='first-tab-group'>
-                  <li>
-                    <a href='#tab1' className='active'>
-                      2008 - 2014
-                    </a>
-                  </li>
-                  <li>
-                    <a href='#tab2'>2014 - 2016</a>
-                  </li>
-                  <li>
-                    <a href='#tab3'>2016 - 2019</a>
-                  </li>
-                  <li>
-                    <a href='#tab4'>2019 - Now</a>
-                  </li>
-                </ul>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div className='parallax-content contact-content' id='contact-us'>
+      <div className='parallax-content contact-content' id='kontak-kami'>
         <div className='container'>
           <div className='row'>
             <div className='col-md-6'>
@@ -220,10 +221,12 @@ export default function Home() {
             <div className='col-md-6'>
               <div className='map'>
                 <iframe
-                  src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1197183.8373802372!2d-1.9415093691103689!3d6.781986417238027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdb96f349e85efd%3A0xb8d1e0b88af1f0f5!2sKumasi+Central+Market!5e0!3m2!1sen!2sth!4v1532967884907'
+                  src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d507368.0597528409!2d106.5338970013562!3d-6.545285958604711!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c3e312798437%3A0x301576d14feb990!2sBogor%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1607570303268!5m2!1sen!2sid'
                   width='100%'
-                  height='390'
-                ></iframe>
+                  height='390px'
+                  style={{ border: 0 }}
+                  aria-hidden='false'
+                />
               </div>
             </div>
           </div>
