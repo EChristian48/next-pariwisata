@@ -12,7 +12,7 @@ export default function Achievement({
   return (
     <div className='col-md-6'>
       <div className='service-item'>
-        <h4>{href ? <a href={href}>{judul}</a> : judul}</h4>
+        <h2>{href ? <a href={href}>{judul}</a> : judul}</h2>
         <div className='line-dec'></div>
         <p>{deskripsi}</p>
       </div>

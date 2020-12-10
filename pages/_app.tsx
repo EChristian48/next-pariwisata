@@ -7,6 +7,7 @@ import '~root/styles/main.css'
 import '~root/styles/slider.css'
 import '~root/styles/template.css'
 import '~root/styles/FixedSideNavbar.css'
+import { ChakraProvider } from '@chakra-ui/react'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

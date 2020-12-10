@@ -7,7 +7,8 @@ html {
 .baner-content {
   padding-top: 30vh;
   text-align: center;
-  background-image: url(https://image.shutterstock.com/z/stock-photo-bogor-november-tugu-kujang-landmark-of-bogor-city-indonesia-773156842.jpg);
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)),
+    url(https://image.shutterstock.com/z/stock-photo-bogor-november-tugu-kujang-landmark-of-bogor-city-indonesia-773156842.jpg);
 }
 
 .baner-content h1 {

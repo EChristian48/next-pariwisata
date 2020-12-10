@@ -1,7 +1,10 @@
 import $ from 'jquery'
 import { NextSeo } from 'next-seo'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import { Alert, Button, Carousel, Col, Image, Row } from 'react-bootstrap'
 import {
+  FaCheck,
+  FaCheckCircle,
   FaDribbble,
   FaFacebook,
   FaGoogle,
@@ -11,7 +14,10 @@ import {
 } from 'react-icons/fa'
 import Achievement, { AchievementProps } from '~root/components/Achievements'
 import FixedSideNavbar from '~root/components/FixedSideNavbar'
+import { BiLeftArrow, BiRightArrow } from 'react-icons/bi'
 import PlaceCard, { PlaceCardProps } from '~root/components/PlaceCard'
+import { useMediumScreen } from '~root/lib/types/hooks'
+import { useToast } from '@chakra-ui/react'
 
 const menus: string[] = ['Bogor', 'Tentang', 'Tempat Wisata', 'Kontak Kami']
 
@@ -27,29 +33,30 @@ const places: PlaceCardProps[] = [
   {
     src: 'https://upload.wikimedia.org/wikipedia/commons/c/cd/Istana_Bogor.jpg',
     children:
-      'Istana Bogor (Aksara Sunda Baku: ᮄᮞ᮪ᮒᮔ ᮘᮧᮌᮧᮁ) merupakan salah satu dari enam Istana Presiden Republik Indonesia yang mempunyai keunikan tersendiri dikarenakan aspek historis, kebudayaan, dan faunanya. Salah satunya adalah keberadaan rusa-rusa yang didatangkan langsung dari Nepal dan tetap terjaga dari dulu sampai sekarang. Seperti namanya, istana ini terletak di Bogor, Jawa Barat.',
+      'Istana Bogor merupakan salah satu dari enam Istana Presiden Republik Indonesia yang mempunyai keunikan tersendiri dikarenakan aspek historis, kebudayaan, dan faunanya.',
   },
   {
     src:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Kebun_Raya_Bogor_19.jpg/1280px-Kebun_Raya_Bogor_19.jpg',
     children:
-      'Kebun Raya Bogor atau Kebun Botani Bogor (Aksara Sunda Baku: ᮊᮨᮘᮧᮔ᮪ ᮛᮚ ᮘᮧᮍᮧᮁ, Kebon Raya Bogor) adalah sebuah kebun botani besar yang terletak di Kota Bogor, Indonesia. Luasnya mencapai 87 hektar dan memiliki 15.000 jenis koleksi pohon dan tumbuhan.',
+      'Kebun Raya Bogor atau Kebun Botani Bogor adalah sebuah kebun botani besar yang terletak di Kota Bogor, Indonesia. Luasnya mencapai 87 hektar dan memiliki 15.000 jenis koleksi pohon dan tumbuhan.',
   },
   {
     src:
       'https://image.shutterstock.com/z/stock-photo-good-morning-from-gede-pangrango-mountain-bogor-cianjur-west-java-indonesia-1359947378.jpg',
     children:
-      'Gunung Pangrango (Aksara Sunda Baku: ᮌᮥᮔᮥᮀ ᮕᮍᮢᮍᮧ) merupakan sebuah gunung yang terdapat di pulau Jawa, Indonesia. Gunung Pangrango mempunyai ketinggian setinggi 3.019 meter dari permukaan laut. Puncaknya dinamakan Puncak Mandalawangi. Puncak Mandalawangi juga merupakan titik pertemuan batas tiga kabupaten yaitu Kabupaten Bogor, Kabupaten Cianjur dan Kabupaten Sukabumi.',
+      'Gunung Pangrango merupakan sebuah gunung yang terdapat di pulau Jawa, Indonesia. Gunung Pangrango mempunyai ketinggian setinggi 3.019 meter dari permukaan laut.',
   },
   {
     src:
       'https://explorewisata.com/wp-content/uploads/2018/04/devoyage-bogor.jpg',
     children:
-      'Devoyage berpotensi menjadi salah satu objek wisata paling favorit di Kota Bogor. Pada saat Grand Opening saja mengundang penyanyi papan atas sekelas Tulus dan Kahitna. Apalagi melihat aneka spot foto kekinian yang sangat digemari oleh anak muda jaman now, seperti menjadi spot foto corner di Bogor yang sayang untuk dilewatkan.',
+      'Devoyage berpotensi menjadi salah satu objek wisata paling favorit di Kota Bogor. Pada saat Grand Opening saja mengundang penyanyi papan atas sekelas Tulus dan Kahitna.',
   },
 ]
 
 export default function Home() {
+  const isMediumScreen = useMediumScreen()
   useEffect(() => {
     $(document).ready(function ($) {
       'use strict'
@@ -66,6 +73,17 @@ export default function Home() {
     })
   }, [])
 
+  const [currentCarousel, setCarousel] = useState(0)
+
+  const carouselHandler = (selected: number) => setCarousel(selected)
+
+  const nextItem = () =>
+    setCarousel(prev => (prev + 1 > places.length - 1 ? 0 : prev + 1))
+  const prevItem = () =>
+    setCarousel(prev => (prev - 1 < 0 ? places.length - 1 : prev - 1))
+
+  const toast = useToast()
+
   return (
     <>
       <NextSeo title='Home' />
@@ -81,7 +99,7 @@ export default function Home() {
               <em>Mari</em> ke Sini!
             </span>
             <div className='primary-button'>
-              <a href='#services'>Cari Tahu</a>
+              <a href='#tentang'>Cari Tahu</a>
             </div>
           </div>
         </div>
@@ -90,6 +108,9 @@ export default function Home() {
       {/* Second Section */}
       <div className='service-content' id='tentang'>
         <div className='container'>
+          <Row className='align-items-center justify-content-center py-5'>
+            <Image src='/new-img/logokotabogor.webp' alt='Logo Kota Bogor' />
+          </Row>
           <div className='row'>
             <div className='col-md-4'>
               {/* Introduction */}
@@ -97,10 +118,9 @@ export default function Home() {
                 <h4>Tentang Kota Bogor</h4>
                 <div className='line-dec'></div>
                 <p>
-                  Kota Bogor (aksara Sunda: ᮊᮧᮒ ᮘᮧᮍᮁᮧ) adalah sebuah kota di
-                  Provinsi Jawa Barat. Kota ini terletak 59 km² di sebelah
-                  selatan Jakarta, dan wilayahnya berada di tengah-tengah
-                  wilayah Kabupaten Bogor.
+                  Kota Bogor adalah sebuah kota di Provinsi Jawa Barat. Kota ini
+                  terletak 59 km² di sebelah selatan Jakarta, dan wilayahnya
+                  berada di tengah-tengah wilayah Kabupaten Bogor.
                 </p>
 
                 <p>
@@ -118,16 +138,9 @@ export default function Home() {
                   Pajajaran.
                 </p>
 
-                {/* <ul>
-                  <li>- Praesent porta urna id eros</li>
-                  <li>- Curabitur consectetur malesuada</li>
-                  <li>- Nam pretium imperdiet enim</li>
-                  <li>- Sed viverra arcu non nisi efficitur</li>
-                </ul> */}
-
                 <div className='primary-button'>
                   <a href='https://id.wikipedia.org/wiki/Kota_Bogor'>
-                    <FaWikipediaW /> Halaman Wikipedia
+                    <FaWikipediaW size={20} /> Halaman Wikipedia
                   </a>
                 </div>
               </div>
@@ -150,11 +163,22 @@ export default function Home() {
           <div className='row'>
             <div className='col-md-8 mx-auto'>
               <div className='wrapper'>
-                <section id='first-tab-group' className='tabgroup'>
+                <Carousel
+                  onSelect={carouselHandler}
+                  interval={1000}
+                  activeIndex={currentCarousel}
+                >
                   {places.map((place, index) => (
-                    <PlaceCard {...place} key={index} />
+                    <Carousel.Item key={index}>
+                      <div className='tabgroup'>
+                        <PlaceCard {...place} />
+                        <Carousel.Caption>
+                          <p>{place.children}</p>
+                        </Carousel.Caption>
+                      </div>
+                    </Carousel.Item>
                   ))}
-                </section>
+                </Carousel>
               </div>
             </div>
           </div>
@@ -167,7 +191,22 @@ export default function Home() {
             <div className='col-md-6'>
               <div className='contact-form'>
                 <div className='row'>
-                  <form id='contact' action='' method='post'>
+                  <form
+                    id='contact'
+                    action=''
+                    method='post'
+                    onSubmit={e => {
+                      e.preventDefault()
+
+                      toast({
+                        render: () => (
+                          <Alert variant='success'>
+                            Message sent successfully! <FaCheckCircle />
+                          </Alert>
+                        ),
+                      })
+                    }}
+                  >
                     <div className='row'>
                       <div className='col-md-12'>
                         <fieldset>
@@ -177,6 +216,7 @@ export default function Home() {
                             className='form-control'
                             id='name'
                             placeholder='Your name...'
+                            required
                           />
                         </fieldset>
                       </div>
@@ -188,6 +228,7 @@ export default function Home() {
                             className='form-control'
                             id='email'
                             placeholder='Your email...'
+                            required
                           />
                         </fieldset>
                       </div>
@@ -199,6 +240,7 @@ export default function Home() {
                             className='form-control'
                             id='message'
                             placeholder='Your message...'
+                            required
                           ></textarea>
                         </fieldset>
                       </div>
@@ -268,7 +310,7 @@ export default function Home() {
                 </li>
               </ul>
               <p>
-                Made by:{' '}
+                Copyright &copy; 2020{' '}
                 <a href='https://www.instagram.com/smkwikrama/?hl=en'>
                   SMK Wikrama Bogor
                 </a>

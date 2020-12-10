@@ -5,11 +5,14 @@
   padding: 5px 45px 5px 25px;
   border-right: none;
 }
+
 .fixed-side-navbar .nav > li a span {
+  color: black;
   display: none;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
+
 .fixed-side-navbar .nav > li a:after {
   content: '';
   position: absolute;
@@ -62,15 +65,15 @@
   padding: 2px 12px;
   border-radius: 15px;
 }
-.fixed-side-navbar .nav > li a.active {
+.fixed-side-navbar .nav > li a {
   background-color: transparent;
   color: black;
 }
-.fixed-side-navbar .nav > li a.active:after {
+.fixed-side-navbar .nav > li a:after {
   -webkit-transform: scale(0.9);
   transform: scale(0.9);
 }
-.fixed-side-navbar .nav > li a.active:before {
+.fixed-side-navbar .nav > li a:before {
   content: '';
   position: absolute;
   top: 50%;

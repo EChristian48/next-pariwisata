@@ -10,7 +10,7 @@ const PlaceCard: FC<PlaceCardProps> = ({ children, ...imgProps }) => {
   return (
     <div>
       <img {...imgProps} />
-      <p>{children}</p>
+      {/* <p>{children}</p> */}
     </div>
   )
 }
