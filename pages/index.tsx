@@ -8,9 +8,11 @@ import {
   FaDribbble,
   FaFacebook,
   FaGoogle,
+  FaInstagram,
   FaLinkedin,
   FaTwitter,
   FaWikipediaW,
+  FaYoutube,
 } from 'react-icons/fa'
 import Achievement, { AchievementProps } from '~root/components/Achievements'
 import FixedSideNavbar from '~root/components/FixedSideNavbar'
@@ -263,32 +265,17 @@ export default function Home() {
           <div className='row'>
             <div className='col-md-12'>
               <div className='primary-button'>
-                <a href='#home'>Back To Top</a>
+                <a href='#bogor'>Back To Top</a>
               </div>
               <ul>
                 <li>
-                  <a href='#'>
-                    <FaFacebook />
+                  <a href='https://www.youtube.com/channel/UCyhEUzlXbXet57qFnDfdWuw'>
+                    <FaYoutube />
                   </a>
                 </li>
                 <li>
-                  <a href='#'>
-                    <FaTwitter />
-                  </a>
-                </li>
-                <li>
-                  <a href='#'>
-                    <FaLinkedin />
-                  </a>
-                </li>
-                <li>
-                  <a href='#'>
-                    <FaGoogle />
-                  </a>
-                </li>
-                <li>
-                  <a href='#'>
-                    <FaDribbble />
+                  <a href='https://www.instagram.com/smkwikrama/?hl=en'>
+                    <FaInstagram />
                   </a>
                 </li>
               </ul>
