@@ -83,7 +83,7 @@ export default function Home() {
           <div className='first-content'>
             <h1>Bogor</h1>
             <span>
-              <em>Mari</em> ke Sini!
+              Yuk <em>Wisata</em> ke Bogor!
             </span>
             <div className='primary-button'>
               <a href='#tentang'>Cari Tahu</a>
