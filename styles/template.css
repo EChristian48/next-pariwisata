@@ -59,7 +59,7 @@ a:hover {
   padding-left: 15px;
   padding-right: 15px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url(https://image.shutterstock.com/z/stock-photo-road-of-botanic-garden-in-bogor-indonesia-364048613.jpg);
+    url(/new-img/kebun-raya.jpg);
   background-attachment: fixed;
   min-height: 100vh;
   background-size: cover;
@@ -175,6 +175,7 @@ h4,
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 8vh;
+  padding-bottom: 8vh;
   background-image: url(/new-img/really-is-blurred.webp);
   background-attachment: fixed;
   min-height: 100vh;

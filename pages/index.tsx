@@ -1,9 +1,9 @@
+import { useToast } from '@chakra-ui/react'
 import $ from 'jquery'
 import { NextSeo } from 'next-seo'
-import { useEffect, useState } from 'react'
-import { Alert, Button, Carousel, Col, Image, Row } from 'react-bootstrap'
+import { useEffect } from 'react'
+import { Alert, Carousel, Image, Row } from 'react-bootstrap'
 import {
-  FaCheck,
   FaCheckCircle,
   FaDribbble,
   FaFacebook,
@@ -14,10 +14,7 @@ import {
 } from 'react-icons/fa'
 import Achievement, { AchievementProps } from '~root/components/Achievements'
 import FixedSideNavbar from '~root/components/FixedSideNavbar'
-import { BiLeftArrow, BiRightArrow } from 'react-icons/bi'
 import PlaceCard, { PlaceCardProps } from '~root/components/PlaceCard'
-import { useMediumScreen } from '~root/lib/types/hooks'
-import { useToast } from '@chakra-ui/react'
 
 const menus: string[] = ['Bogor', 'Tentang', 'Tempat Wisata', 'Kontak Kami']
 
@@ -43,7 +40,7 @@ const places: PlaceCardProps[] = [
   },
   {
     src:
-      'https://image.shutterstock.com/z/stock-photo-good-morning-from-gede-pangrango-mountain-bogor-cianjur-west-java-indonesia-1359947378.jpg',
+      'https://mmc.tirto.id/image/otf/1024x535/2020/07/06/gunung-gede-pangrango-istockphoto_ratio-16x9.jpg',
     children:
       'Gunung Pangrango merupakan sebuah gunung yang terdapat di pulau Jawa, Indonesia. Gunung Pangrango mempunyai ketinggian setinggi 3.019 meter dari permukaan laut.',
   },
@@ -56,7 +53,6 @@ const places: PlaceCardProps[] = [
 ]
 
 export default function Home() {
-  const isMediumScreen = useMediumScreen()
   useEffect(() => {
     $(document).ready(function ($) {
       'use strict'
@@ -72,15 +68,6 @@ export default function Home() {
       })
     })
   }, [])
-
-  const [currentCarousel, setCarousel] = useState(0)
-
-  const carouselHandler = (selected: number) => setCarousel(selected)
-
-  const nextItem = () =>
-    setCarousel(prev => (prev + 1 > places.length - 1 ? 0 : prev + 1))
-  const prevItem = () =>
-    setCarousel(prev => (prev - 1 < 0 ? places.length - 1 : prev - 1))
 
   const toast = useToast()
 
@@ -163,11 +150,7 @@ export default function Home() {
           <div className='row'>
             <div className='col-md-8 mx-auto'>
               <div className='wrapper'>
-                <Carousel
-                  onSelect={carouselHandler}
-                  interval={1000}
-                  activeIndex={currentCarousel}
-                >
+                <Carousel>
                   {places.map((place, index) => (
                     <Carousel.Item key={index}>
                       <div className='tabgroup'>
